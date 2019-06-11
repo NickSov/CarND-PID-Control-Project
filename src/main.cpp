@@ -5,6 +5,8 @@
 #include "json.hpp"
 #include "PID.h"
 #include <ctime>
+#include <fstream>
+#include <time.h>
 
 // for convenience
 using nlohmann::json;
@@ -38,8 +40,11 @@ int main() {
   /**
    * TODO: Initialize the pid variable.
    */
+  std::ofstream dataFileOut;
+  dataFileOut.open("steer_vals.txt", std::ofstream::out | std::ofstream::trunc);
+  int i = 0;
 
-  h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
+  h.onMessage([&pid, &i, &dataFileOut](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
                      uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
@@ -52,17 +57,12 @@ int main() {
     if (length && length > 2 && data[0] == '4' && data[1] == '2') {
       auto s = hasData(string(data).substr(0, length));
 
-
-
       if (s != "") {
         auto j = json::parse(s);
 
         string event = j[0].get<string>();
 
-
-
         if (event == "telemetry") {
-
 
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<string>());
@@ -80,6 +80,21 @@ int main() {
 
            steer_value = pid.pidController(cte);
 
+           clock_t t;
+           clock_t t_prev;
+           clock_t time_diff;
+
+           t = clock();
+
+
+           time_diff =  t-t_prev;
+
+           std::cout << "time diff: " << ((float)time_diff)/CLOCKS_PER_SEC << std::endl;
+           t_prev = t;
+
+           dataFileOut << i << " " << steer_value << "\n";
+
+           i += 1;
 
           // DEBUG
           //std::cout << "CTE: " << cte << " Steering Value: " << steer_value
@@ -123,4 +138,6 @@ int main() {
   }
 
   h.run();
+
+  dataFileOut.close();
 }

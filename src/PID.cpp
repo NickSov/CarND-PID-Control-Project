@@ -56,7 +56,7 @@ double PID::pidController(double cte)
     double KpIn;
     double KiIn;
     double KdIn;
-    std::cout << "In put Kp, Ki, and Kd values:" << std::endl;
+    std::cout << "Input Kp, Ki, and Kd values:" << std::endl;
     std::cin >> KpIn >> KiIn >> KdIn;
     std::cout << "Kp: " << KpIn <<", Ki: "<< KiIn << " , Kd: " << KdIn << std::endl;
     Init(KpIn,KiIn,KdIn);
@@ -65,11 +65,9 @@ double PID::pidController(double cte)
   double u;
   UpdateError(cte, deltaT);
 
-
-
   u = -Kp*pErr - Ki*iErr - Kd*dErr;
 
-  std::cout << "Kp:" << Kp << " | pErr: "<< pErr << " | dErr: " << dErr <<std::endl;
+  std::cout << "Kp:" << Kp << " | pErr: "<< pErr << " | dErr: " << dErr << "iErr" << iErr <<std::endl;
 
   return u;  // TODO: Add your total error calc here!
 }
