@@ -1,6 +1,7 @@
 #include "PID.h"
 #include <iostream>
 
+
 /**
  * TODO: Complete the PID class. You may add any additional desired functions.
  */
@@ -56,9 +57,16 @@ double PID::pidController(double cte)
     double KpIn;
     double KiIn;
     double KdIn;
-    std::cout << "Input Kp, Ki, and Kd values:" << std::endl;
-    std::cin >> KpIn >> KiIn >> KdIn;
-    std::cout << "Kp: " << KpIn <<", Ki: "<< KiIn << " , Kd: " << KdIn << std::endl;
+    //std::cout << "Input Kp, Ki, and Kd values:" << std::endl;
+    //std::cin >> KpIn >> KiIn >> KdIn;
+    //std::cout << "Kp: " << KpIn <<", Ki: "<< KiIn << " , Kd: " << KdIn << std::endl;
+
+    // Tuned parameters
+
+    KpIn = 0.1800;
+    KiIn = 0.0004;
+    KdIn = 1.4390;
+
     Init(KpIn,KiIn,KdIn);
   };
 
@@ -67,7 +75,7 @@ double PID::pidController(double cte)
 
   u = -Kp*pErr - Ki*iErr - Kd*dErr;
 
-  std::cout << "Kp:" << Kp << " | pErr: "<< pErr << " | dErr: " << dErr << "iErr" << iErr <<std::endl;
+  //std::cout << "Kp:" << Kp << " | pErr: "<< pErr << " | dErr: " << dErr << "iErr" << iErr <<std::endl;
 
   return u;  // TODO: Add your total error calc here!
 }

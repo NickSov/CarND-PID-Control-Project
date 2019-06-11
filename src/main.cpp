@@ -51,8 +51,8 @@ int main() {
     // The 2 signifies a websocket event
 
     // current date/time based on current system
-    std::clock_t c_start = std::clock();
-    std::clock_t c_end = std::clock();
+    // std::clock_t c_start = std::clock();
+    // std::clock_t c_end = std::clock();
 
     if (length && length > 2 && data[0] == '4' && data[1] == '2') {
       auto s = hasData(string(data).substr(0, length));
@@ -78,22 +78,23 @@ int main() {
 
           // std::cout << cte << std::endl;
 
-           steer_value = pid.pidController(cte);
+          steer_value = pid.pidController(cte);
 
-           clock_t t;
-           clock_t t_prev;
-           clock_t time_diff;
+           // Time output for tuning
 
-           t = clock();
-
-
-           time_diff =  t-t_prev;
-
-           std::cout << "time diff: " << ((float)time_diff)/CLOCKS_PER_SEC << std::endl;
-           t_prev = t;
-
+           // clock_t t;
+           // clock_t t_prev;
+           // clock_t time_diff;
+           //
+           // t = clock();
+           //
+           // time_diff =  t-t_prev;
+           //
+           // std::cout << "time diff: " << ((float)time_diff)/CLOCKS_PER_SEC << std::endl;
+           // t_prev = t;
+           //
            dataFileOut << i << " " << steer_value << "\n";
-
+           //
            i += 1;
 
           // DEBUG
