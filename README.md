@@ -19,7 +19,9 @@ The PID algorithm is simple and highly used in industry. It finds particular use
 
 A simple PID control loop is shown below, with the include code components for the P, I, and D terms:
 
+
 <img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/PID.png" width="750">
+
 
 
 ## PID Gain Parameter Effects
@@ -51,7 +53,7 @@ Ziegler-Nichols actually consists of two methods, I chose the simpler. The steps
 
 <img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/pid_vals.png" width="400">
 
-Source: R. M. Murray, Z. Li and S. S. Sastry, A Mathematical Introduction to Robotic Manipulation. CRC Press, 1993.
+**Source**: R. M. Murray, Z. Li and S. S. Sastry, A Mathematical Introduction to Robotic Manipulation. CRC Press, 1993.
 
 **Calculated Gains**
 
