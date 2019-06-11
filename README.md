@@ -5,19 +5,20 @@ Self-Driving Car Engineer Nanodegree Program
 
 The PID algorithm is simple and highly used in industry. It finds particular use in the process control industry in which certain values need to be reached and kept within a tight range. The controller works by utilizing three corrective responses:
 
-1. Proportional control
+1. **Proportional control**
 
   Proportionally reacts to the error in the system; if the error is big, the gain will be big. The issue with proportional only is that it never hits the target because it consistently overshoots. Proportional control also seems to oscillate with increasing amplitude until the oscillations are so great that they lead to disastrous. outcomes.
 
-2. Integral based control
+2. **Integral based control**
 
   Integral control contains the history of the error over time. The integral component of error accumulates as long as error is present; therefore, this term helps to narrow in on the target and reduce the error in the system.
 
-3. Derivative based control
+3. **Derivative based control**
 
   Derivative control helps dampen the system since it accounts for how quickly the error changes. Large rates of change in error, result in a large derivative error component.
 
 A simple PID control loop is shown below, with the include code components for the P, I, and D terms:
+
 
 
 <img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/PID.png" width="750">
