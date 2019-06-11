@@ -19,7 +19,7 @@ The PID algorithm is simple and highly used in industry. It finds particular use
 
 A simple PID control loop is shown below, with the include code components for the P, I, and D terms:
 
-<img src="" width="750">
+<img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/PID.png" width="750">
 
 
 ## PID Gain Parameter Effects
@@ -28,7 +28,14 @@ The various parameters, more or less, had the effects described above for each o
 
 ## Tuning Parameter Selection
 
-Parameter tuning was tedious in the beginning as I tried a guess and check method. After some time, I realized that the controller was performing poorly and that I could endless try to make it better. Next I looked into the literature to see what methods exist for PID controller tuning. I settled on the second fastest method: **Ziegler-Nichols' Tuning**.
+Parameter tuning was tedious in the beginning as I tried a guess and check method. After some time, I realized that the controller was performing poorly and that I could endless try to make it better. Next I looked into the literature to see what methods exist for PID controller tuning. I settled on the second fastest method: **Ziegler-Nichols' Tuning**. The main sources I read through:
+
+- [A Mathematical Introduction to Robotic Manipulation | Ch.10: PID Control](http://www.cds.caltech.edu/~murray/  books/AM08/pdf/am06-pid_16Sep06.pdf)
+
+- [Probably the best simple PID tuning rules in the world](https://pdfs.semanticscholar.org/05b2/07a58365e1b19485ca82cac53bb8e9ea1025.pdf)
+
+- [Wikipedia: PID Controller](https://en.wikipedia.org/wiki/PID_controller)
+
 
 Ziegler-Nichols actually consists of two methods, I chose the simpler. The steps I took were as follows:
 
@@ -38,12 +45,14 @@ Ziegler-Nichols actually consists of two methods, I chose the simpler. The steps
 
 **Recorded Data for Period Determination**
 
-<img src="" width="750">
+<img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/T.png" width="600">
 
 **Ziegler-Nichols Control Parameters**
 
-<img src="" width="750">
+<img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/pid_vals.png" width="400">
+
+Source: R. M. Murray, Z. Li and S. S. Sastry, A Mathematical Introduction to Robotic Manipulation. CRC Press, 1993.
 
 **Calculated Gains**
 
-<img src="" width="750">
+<img src="https://github.com/NickSov/CarND-PID-Control-Project/blob/master/images/table.png" width="400">
